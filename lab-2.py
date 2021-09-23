@@ -10,7 +10,7 @@ print("Let's estimate the future population of your country")
 # User inputs births per second, deaths per second, and immigration per second
 birthSecond = float(input("Please input births per second: "))
 deathSecond = float(input("Please input deaths per second: "))
-immigrationSecond = float(input("Please input immigrations per second: "))
+migrationSecond = float(input("Please input immigrations per second: "))
 currentPopulation = float(input("Please input the current population: "))
 futureYear = float(input("Please input how many years in the future you want to see: "))
 
@@ -20,17 +20,17 @@ secondsDay = 864000
 # Converting seconds in to one day
 birthDay = birthSecond * secondsDay
 deathDay = deathSecond * secondsDay
-immigrationDay = immigrationSecond * secondsDay
+migrationDay = migrationSecond * secondsDay
 
 # Converting days into one year
 
 birthYear = birthDay * 365
 deathYear = deathDay * 365
-immigrationYear = immigrationDay * 365
+migrationYear = migrationDay * 365
 
 # Calculate the output
 
-futurePopulation = futureYear * (birthYear + deathYear + immigrationYear)
+futurePopulation = futureYear * (birthYear + deathYear + migrationYear)
 
 print("Your country will have a population of " + str(futurePopulation))
 
