@@ -33,10 +33,3 @@ migrationYear = migrationDay * 365
 futurePopulation = futureYear * (birthYear + deathYear + migrationYear)
 
 print("Your country will have a population of " + str(futurePopulation))
-
-
-
-
-
-
-
