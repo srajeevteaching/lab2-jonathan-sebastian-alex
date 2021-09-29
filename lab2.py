@@ -7,30 +7,29 @@
 
 # Necessary User Inputs (Births, Deaths, Migrations per second, Current Population, and Years into the future)
 current_population = float(input("Enter current population: "))
-amount_years = int(input("Enter how many years into future: "))
+amount_years = float(input("Enter how many years into future: "))
 births_per_second = float(input("Enter births per second: "))
 deaths_per_second = float(input("Enter deaths per second: "))
-migrations_per_second = float(input("Enter migrations (-) per second: "))
-
-# Declaring amount of seconds in a day
-seconds_per_year = 86400 * 365
+migrations_per_second = float(input("Enter migrations per second (for emigration please use negative sign) : "))
+1
+# Declaring amount of seconds in desired years
+seconds_per_desired_year = (86400 * 365) * amount_years
 
 # Converting Inputs from seconds to year
-births_per_year = births_per_second * seconds_per_year
-deaths_per_year = deaths_per_second * seconds_per_year
-migrations_per_year = migrations_per_second * seconds_per_year
-
-# Total outcome of Subtracting deaths and migrations per year from births per year)
-total_difference = births_per_year - deaths_per_year - migrations_per_year
-
-# Amount to be added onto the current population based on amount of years into future wished to be calculated
-difference_in_future = total_difference * amount_years
+total_births = births_per_second * seconds_per_desired_year
+total_deaths = deaths_per_second * seconds_per_desired_year
+total_migrations = migrations_per_second * seconds_per_desired_year
 
 # Final population after inputted years
-total_population = int(current_population + difference_in_future)
+future_population = current_population + total_births - total_deaths + total_migrations
+future_population = int(future_population)
 
 # Closing statement with output data
-print("\nYour Population in " + str(amount_years) + " years will be, " + str(total_population))
+if future_population > 0:
+    print("\nYour Population in " + str(amount_years) + " years will be, " + str(future_population))
+else:
+    print("\nYour population has died out! :( , current population is " + str(future_population))
+
 print("\nThanks for using our code!")
 
 
